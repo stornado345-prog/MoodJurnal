@@ -1,22 +1,219 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🌤️ MoodJurnal
 
-# Run and deploy your AI Studio app
+**MoodJurnal** is a modern Android mood journaling application designed to help users record their daily moods, reflect on their experiences, and visualize their emotional patterns over time.
 
-This contains everything you need to run your app locally.
+The application is built with **Kotlin** and **Jetpack Compose**, focusing on a clean user experience, reactive UI, and maintainable Android architecture.
 
-View your app in AI Studio: https://ai.studio/apps/e6a1d6fb-c0b6-42cd-b7b5-627d8e8cf30d
+## ✨ Features
 
-## Run Locally
+* 😊 Daily mood tracking
+* 📝 Write personal journal entries
+* 📅 View mood history
+* 📊 Mood statistics and trends
+* 🔍 Browse previous journal entries
+* ✏️ Edit journal entries
+* 🗑️ Delete journal entries
+* 📈 Track emotional patterns
+* 🎨 Modern Material 3 interface
+* 📱 Responsive Jetpack Compose UI
+* ⚡ Reactive state management
 
-**Prerequisites:**  [Android Studio](https://developer.android.com/studio)
+## 🎭 Mood Tracking
 
+Users can record their daily emotional state and attach a journal entry to provide additional context.
 
-1. Open Android Studio
-2. Select **Open** and choose the directory containing this project
-3. Allow Android Studio to fix any incompatibilities as it imports the project.
-4. Create a file named `.env` in the project directory and set `GEMINI_API_KEY` in that file to your Gemini API key (see `.env.example` for an example)
-5. Remove this line from the app's `build.gradle.kts` file: `signingConfig = signingConfigs.getByName("debugConfig")`
-6. Run the app on an emulator or physical device
-7. If you have already published your app in AI Studio, please [request upload key reset](https://support.google.com/googleplay/android-developer/answer/9842756#zippy=%2Crequest-an-upload-key-reset) in Google Play Console.
+Mood tracking allows users to look back at their previous entries and identify patterns in their daily experiences.
+
+Example mood categories:
+
+```text
+😊 Happy
+😌 Calm
+😐 Neutral
+😔 Sad
+😡 Angry
+😰 Anxious
+🤩 Excited
+```
+
+## 📊 Mood Insights
+
+The application can present mood information in an easy-to-understand format, allowing users to review their emotional history.
+
+Potential insights include:
+
+* Current mood
+* Mood history
+* Mood frequency
+* Daily mood records
+* Weekly trends
+* Monthly trends
+
+## 📝 Journal Entries
+
+Each mood record can be accompanied by a personal journal entry.
+
+Users can:
+
+* Write their thoughts
+* Edit previous entries
+* Delete entries
+* Review their journal history
+* Connect journal entries with daily moods
+
+## 🏗️ Architecture
+
+MoodJurnal follows a modern Android architecture designed to separate the UI, application logic, and data layer.
+
+```text
+┌──────────────────────┐
+│   Jetpack Compose    │
+│        UI            │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│      ViewModel       │
+│                      │
+│ UI State / Logic     │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│     Repository       │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│      Data Layer      │
+│                      │
+│ Database / Storage   │
+└──────────────────────┘
+```
+
+This structure makes the application easier to maintain, test, and extend.
+
+## 🛠️ Tech Stack
+
+* **Kotlin**
+* **Jetpack Compose**
+* **Material 3**
+* **Android SDK**
+* **MVVM Architecture**
+* **Kotlin Coroutines**
+* **Kotlin Flow**
+* **Repository Pattern**
+* **Room Database** *(if enabled in the current implementation)*
+
+## 📂 Project Structure
+
+```text
+app/
+├── data/
+│   ├── dao/
+│   ├── database/
+│   ├── entity/
+│   └── repository/
+│
+├── ui/
+│   ├── components/
+│   ├── screens/
+│   └── theme/
+│
+├── viewmodel/
+│
+└── MainActivity.kt
+```
+
+> The exact package structure may vary depending on the current implementation.
+
+## 📸 Screenshots
+
+Add screenshots of the application here.
+
+Recommended screenshots:
+
+* 🏠 Home / Dashboard
+* 😊 Mood Selection
+* 📝 Journal Entry
+* 📅 Mood History
+* 📊 Mood Statistics
+* 👤 Profile
+
+Example:
+
+| Home       | Mood Selection |
+| ---------- | -------------- |
+| Screenshot | Screenshot     |
+
+| Journal    | Statistics |
+| ---------- | ---------- |
+| Screenshot | Screenshot |
+
+## 🎯 Project Goals
+
+MoodJurnal was developed as an Android portfolio project to demonstrate practical implementation of modern Android development concepts.
+
+The project focuses on:
+
+* Kotlin programming
+* Jetpack Compose UI development
+* MVVM architecture
+* State management
+* Reactive UI
+* Local data management
+* Kotlin Coroutines
+* Kotlin Flow
+* Material 3 design
+* User-focused mobile UX
+
+## 🚀 Getting Started
+
+### Requirements
+
+* Android Studio
+* JDK 17+
+* Android SDK
+* Kotlin
+* Gradle
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/stornado345-prog/MoodJurnal.git
+```
+
+Open the project in **Android Studio**, allow Gradle to synchronize, and run the application on an Android emulator or physical Android device.
+
+## 🔮 Future Improvements
+
+Possible future improvements include:
+
+* 📊 More advanced mood analytics
+* 📅 Calendar-based mood history
+* 🔔 Daily mood reminders
+* 🎨 Custom mood themes
+* 🔐 Biometric app lock
+* 📤 Export journal entries
+* 📥 Import journal data
+* ☁️ Optional cloud backup
+* 🌓 Improved dark mode
+* 📈 More detailed mood charts
+
+## 👨‍💻 Developer
+
+**Satria**
+
+Android Developer focused on building modern Android applications with:
+
+* Kotlin
+* Jetpack Compose
+* MVVM
+* Material 3
+* Modern Android Architecture
+
+---
+
+⭐ If you find this project useful, feel free to explore the source code and give the repository a star.
