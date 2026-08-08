@@ -1,0 +1,4 @@
+- [ ] Initialize Git repository
+- [ ] Stage and commit initial files
+- [ ] Add remote origin
+- [ ] Push code to GitHub

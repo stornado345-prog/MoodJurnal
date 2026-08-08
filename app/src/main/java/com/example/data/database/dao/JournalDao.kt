@@ -1,0 +1,54 @@
+package com.example.data.database.dao
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
+import com.example.data.database.entity.JournalEntry
+import kotlinx.coroutines.flow.Flow
+
+@Dao
+interface JournalDao {
+    @Query("SELECT * FROM journal_entries ORDER BY timestamp DESC")
+    fun getAllEntries(): Flow<List<JournalEntry>>
+
+    @Query("SELECT * FROM journal_entries WHERE id = :id")
+    fun getEntryById(id: Long): Flow<JournalEntry?>
+
+    @Query("SELECT * FROM journal_entries WHERE id = :id")
+    suspend fun getEntryByIdDirect(id: Long): JournalEntry?
+
+    @Query("SELECT * FROM journal_entries WHERE isFavorite = 1 ORDER BY timestamp DESC")
+    fun getFavoriteEntries(): Flow<List<JournalEntry>>
+
+    @Query("SELECT * FROM journal_entries WHERE moodId = :moodId ORDER BY timestamp DESC")
+    fun getEntriesByMood(moodId: String): Flow<List<JournalEntry>>
+
+    @Query("SELECT * FROM journal_entries WHERE dateString = :dateString ORDER BY timestamp DESC")
+    fun getEntriesByDate(dateString: String): Flow<List<JournalEntry>>
+
+    @Query("SELECT * FROM journal_entries WHERE text LIKE '%' || :query || '%' ORDER BY timestamp DESC")
+    fun searchEntries(query: String): Flow<List<JournalEntry>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertEntry(entry: JournalEntry): Long
+
+    @Update
+    suspend fun updateEntry(entry: JournalEntry)
+
+    @Query("DELETE FROM journal_entries WHERE id = :id")
+    suspend fun deleteEntryById(id: Long)
+
+    @Query("UPDATE journal_entries SET isFavorite = :isFavorite WHERE id = :id")
+    suspend fun setFavorite(id: Long, isFavorite: Boolean)
+
+    @Query("DELETE FROM journal_entries")
+    suspend fun deleteAllEntries()
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(entries: List<JournalEntry>)
+
+    @Query("SELECT COUNT(*) FROM journal_entries")
+    fun getTotalCount(): Flow<Int>
+}
