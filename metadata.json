@@ -1,6 +1,0 @@
-{
-  "name": "Mood Journal",
-  "description": "A modern, offline mood journal and emotional wellness tracker.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
